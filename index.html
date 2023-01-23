@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="wrapper" id="app">
+      <h1>Погодное приложение</h1>
+      <p>Узнать погоду в {{ city == '' ? 'вашем городе' : cityName }}</p>
+      <input type="text" v-model="city" placeholder="Введите город">
+      <button v-if="city != ''" @click="getWeather()">Получить погоду</button>
+      <button disabled v-else>Введите название города</button>
+      <p class="error">{{ error }}</p>
+  
+      <div v-if="info != null">
+        <p>{{ showTemp }}</p>
+        <p>{{ showFeelsLike }}</p>
+        <p>{{ showMinTemp }}</p>
+        <p>{{ showMaxTemp }}</p>
+      </div>
+      
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
